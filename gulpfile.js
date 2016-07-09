@@ -30,7 +30,7 @@ var src = "dev/";
 
 function swallowError(error) {
     // If you want details of the error in the console
-    notify(error.toString());
+    console.log(error);
     this.emit('end');
 }
 
@@ -51,14 +51,9 @@ gulp.task('js-custom', function () {
     return gulp.src('dev/scripts/custom/*.js')
         .pipe(insert.prepend('/* Build by Job Sturm in 2016 */'))
         .pipe(babel())
-        .on('error', swallowError)
         .pipe(concat('main.js'))
-        .on('error', swallowError)
         .pipe(insert.append('console.log("Last updated on ' + Date() + '");'))
-        .pipe(gulp.dest('build/scripts'))
-        .pipe(livereload({
-            start: true
-        }));
+        .pipe(gulp.dest('build/scripts'));
 });
 
 gulp.task('js-library', function () {
@@ -150,5 +145,4 @@ gulp.task('watch', function () {
     // Watch HTML files
     gulp.watch('dev/**/*.html', ['js-custom', 'js-library', 'inline', 'filesize']);
     gulp.watch('dev/sass/*.scss', ['js-custom', 'js-library', 'inline', 'filesize']);
-    gulp.watch("build/*.html").on('change', reload);    
 });
