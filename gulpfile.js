@@ -59,10 +59,7 @@ gulp.task('js-custom', function () {
 gulp.task('js-library', function () {
     return gulp.src('dev/scripts/_libs/*.js')
         .pipe(concat('library.js'))
-        .pipe(gulp.dest('build/scripts'))
-        .pipe(livereload({
-            start: true
-        }));
+        .pipe(gulp.dest('build/scripts'));
 });
 
 // INLINE & INCLUDE

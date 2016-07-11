@@ -1,6 +1,6 @@
 const api = {
     years: [],
-    currentYear: 2014
+    currentYear: app.settings.startYear
 };
 
 api.formURL = (topic) => {
@@ -21,7 +21,6 @@ api.handleData = (data) => {
     Object.keys(data).forEach((key) => {
         data = data[key];
     });
-    
     
     data = data.revisions[0]["*"];
     
@@ -45,9 +44,6 @@ api.handleData = (data) => {
             });
         }
     });
-    
-    
-    console.log(monthArray);
 }
 
 api.finish = () => {
