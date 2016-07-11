@@ -1,14 +1,17 @@
 const year = {};
 
+year.changeVar = () => {
+    // this is callled after the year variable changes.
+    hasher.setHash(app.currentYear);
+}
+
 year.change = () => {
-    console.log(app.currentYear , crossroads._prevMatchedRequest)
-    if (crossroads._prevMatchedRequest != undefined && crossroads._prevMatchedRequest != null && app.currentYear != null && app.currentYear != crossroads._prevMatchedRequest) {
+    console.log(app.currentYear, crossroads._prevMatched)
+    // this is called after the URL changes.
+    if (app.currentYear !== crossroads._prevMatchedRequest) {
         app.currentYear = crossroads._prevMatchedRequest;
-        crossroads.parse(app.currentYear); //match `route1`, triggering `routed` Signal
         api.currentYear = app.currentYear;
-        api.init();
+        api.getCurrentYear();
         console.log(`We are now in the year ${api.currentYear}`);
-    } else {
-        window.location = "#/" + crossroads._prevMatchedRequest;
     }
 }
