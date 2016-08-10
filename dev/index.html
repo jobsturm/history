@@ -1,6 +1,15 @@
 @@include('modules/head.html')
 <span data-location="home"></span>
+@@include('modules/menu.html')
 <div class="holder">
-    @@include('modules/menu.html')
+    @@include('modules/main-section.html', {
+        "id": "previous"
+    })
+    @@include('modules/main-section.html', {
+        "id": "current"
+    })
+    @@include('modules/main-section.html', {
+        "id": "next"
+    })
 </div>
 @@include('modules/foot.html')

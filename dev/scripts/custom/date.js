@@ -19,3 +19,7 @@ date.checkInbetween = (date_start, date_middle, date_end) => {
 date.checkInbetweenCurrentDate = (date_start, date_end) => {
     return date.checkInbetween(date_start, new Date(), date_end);
 }
+
+date.getMonthFromString = (mon) => {
+   return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
+}

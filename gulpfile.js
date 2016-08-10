@@ -74,7 +74,7 @@ gulp.task('inline', ['js-custom'], function () {
             indent_size: 4
         }))
         .pipe(inline({
-            js: uglify,
+//            js: uglify,
             css: minifyCss,
             disabledTypes: ['svg', 'img'],
             ignore: "../build/scripts/library.js"

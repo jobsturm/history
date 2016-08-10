@@ -2,7 +2,7 @@ const watch = {};
 
 watch.init = () => {
     // Watchlist, CIA style!
-    watch.theFollowing("app.currentYear", year.changeVar);
+    watch.theFollowing("api.currentYear", year.changeVar);
 };
 
 watch.theFollowing = (objectDotKey, exec) => {

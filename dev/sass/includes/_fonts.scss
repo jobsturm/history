@@ -25,3 +25,11 @@ a {
     font-family: 'Roboto', sans-serif;
 }
 
+.article-title {
+    color: $sand;
+}
+
+.article-paragraph {
+    @extend .paragraph;
+    color: white;
+}

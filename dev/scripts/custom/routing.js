@@ -2,7 +2,6 @@ const routing = {};
 
 routing.init = () => {
     //setup crossroads
-    routing.createRoutes();
     routing.eventListeners();
 
     //setup hasher
@@ -15,18 +14,7 @@ routing.init = () => {
     hasher.init(); //start listening for history change
 
     //update URL fragment generating new history record
-    hasher.setHash(app.settings.start);
-}
-
-// create all routes from app.settings.yearBegin (i.e. 1930) to app.settings.yearEnd (i.e. 2016)
-routing.createRoutes = () => {
-    const begin = app.settings.yearBegin;
-    const end = app.settings.yearEnd;
-    var int = begin;
-    
-    for (int = begin; int < end; int++) {
-        crossroads.addRoute(int.toString());
-    }
+    hasher.setHash(api.currentYear +"/"+ api.currentMonth +"/"+ api.currentDay);
 }
 
 routing.eventListeners = () => {

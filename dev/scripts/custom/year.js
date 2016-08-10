@@ -2,16 +2,19 @@ const year = {};
 
 year.changeVar = () => {
     // this is callled after the year variable changes.
-    hasher.setHash(app.currentYear);
+    hasher.setHash(api.currentYear +"/"+ api.currentMonth +"/"+ api.currentDay);
 }
 
 year.change = () => {
-    console.log(app.currentYear, crossroads._prevMatched)
     // this is called after the URL changes.
     if (app.currentYear !== crossroads._prevMatchedRequest) {
-        app.currentYear = crossroads._prevMatchedRequest;
-        api.currentYear = app.currentYear;
-        api.getCurrentYear();
-        console.log(`We are now in the year ${api.currentYear}`);
+        var hash = hasher.getHash();
+        app.currentYear = hash.split("/")[0];
+        api.currentYear = hash.split("/")[0];
+        api.currentMonth = hash.split("/")[1];
+        api.currentDay = hash.split("/")[2];
+        
+        app.setDate(api.currentYear, api.currentMonth, api.currentDay);
+        console.log(`We are now on the date: ${api.currentYear, api.currentMonth, api.currentDay}`);
     }
 }

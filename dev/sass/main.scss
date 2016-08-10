@@ -31,7 +31,17 @@ body {
     margin: 0px;
     padding-top: $menu_height;
     background-color: $darkest;
+    overflow-x: hidden;
 }
+
+.holder {
+    width: 100vw;
+    display: block;
+    position: relative;
+    position: absolute;
+    top: 0px;
+}
+
 // browser sync
 #__bs_notify__ {
     top: auto !important;
